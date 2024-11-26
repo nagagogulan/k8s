@@ -1,0 +1,18 @@
+name: ArgoCD Sync
+
+on:
+  push:
+    branches:
+      - main  # Trigger when changes are pushed to the main branch
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync ArgoCD Application
+      run: |
+        curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.ARGOCD_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{}' \
+          https://<ARGOCD_SERVER>/api/v1/applications/demo-app/sync
