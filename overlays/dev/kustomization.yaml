@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+
+patchesStrategicMerge:
+  - admin-patch.yaml
+  - merchant-patch.yaml

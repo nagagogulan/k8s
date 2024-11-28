@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-deployment
+spec:
+  replicas: 5
+  template:
+    spec:
+      containers:
+      - name: admin
+        image: admin:prod
+        resources:
+          limits:
+            memory: '1Gi'
+            cpu: '500m'
